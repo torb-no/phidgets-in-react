@@ -41,6 +41,12 @@ function App() {
     }).catch(err => {
       console.error('Error during connect: ' + err);
     }) ;
+
+    return () => {
+      distanceSensor.close();
+      led.close();
+      phidgetConnection.close();
+    };
   }, [])
 
 
